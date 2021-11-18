@@ -1,10 +1,9 @@
 package quiz04BilalKhendaf;
 
-public class Position {
-	Float x,y;
+public class CoordonneeDeuxDimension extends Coordonnee {
+	
 
-
-	public Position(Float x, Float y) {
+	public CoordonneeDeuxDimension(Float x, Float y) {
 		this.x = x;
 		this.y = y;
 	}
