@@ -14,7 +14,7 @@ public class Test {
 		Policier police = new Policier(1);
 		Gendarme gendarme = new Gendarme(1);
 
-		logTxt writeTxt = new logTxt();
+		LogTxt writeTxt = new LogTxt();
 
 		Prisonnier michaelScofield = new Prisonnier(unun, "Scofield ", "Michael", foxRiver,writeTxt);
 		

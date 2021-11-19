@@ -4,8 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 
-public class logTxt extends log {
-    public logTxt (){
+public class LogTxt extends Log {
+    public LogTxt(){
         this.extension = ".txt";
     }
 

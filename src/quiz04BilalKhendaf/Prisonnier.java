@@ -9,11 +9,11 @@ public class Prisonnier implements IObservable {
 	IEtatPrisonnier etat;
 	String message, nom, prenom;
 	Etablissement etablissementDetention;
-	log logPosition;
+	Log logPosition;
 	
 	
 	
-	public Prisonnier(Coordonnee position, String nom, String prenom, Etablissement etablissementDetention, log logPosition) {
+	public Prisonnier(Coordonnee position, String nom, String prenom, Etablissement etablissementDetention, Log logPosition) {
 		super();
 		this.observers = new ArrayList<>();
 		this.position = position;
