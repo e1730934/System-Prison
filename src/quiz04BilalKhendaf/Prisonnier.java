@@ -9,6 +9,19 @@ public class Prisonnier implements IObservable {
 	String message, nom, prenom;
 	Etablissement etablissementDetention;
 	
+	
+	
+	public Prisonnier(Coordonnee position, String nom, String prenom, Etablissement etablissementDetention) {
+		super();
+		this.observers = new ArrayList<Observateur>();
+		this.position = position;
+		this.etat = new EnPrison();
+		this.message = "";
+		this.nom = nom;
+		this.prenom = prenom;
+		this.etablissementDetention = etablissementDetention;
+	}
+
 	@Override
 	public void inscrire(Observateur o) {
 		// TODO Auto-generated method stub
@@ -38,7 +51,7 @@ public class Prisonnier implements IObservable {
 		this.etat.emprisonner(this);
 	}
 	
-	void nouvellePosition(Coordonnee nouveauP) {
+	void changementPosition(Coordonnee nouveauP) {
 		float boundX = this.etablissementDetention.position.x + this.etablissementDetention.largeur;
 		float boundY = this.etablissementDetention.position.y + this.etablissementDetention.longeur;
 //		CoordonneeDeuxDimension bound = new CoordonneeDeuxDimension(boundX,boundY);
@@ -46,7 +59,12 @@ public class Prisonnier implements IObservable {
 		boolean conditionDeux = (nouveauP.y >= boundY || nouveauP.y <= this.etablissementDetention.position.y);
 		if(conditionUn || conditionDeux) {
 //			this.message= "Alerte! Le prisonnier " + this.nom + this.prenom ;
+			this.position = nouveauP;
 			enCavalle();
+		}
+		else {
+			this.position = nouveauP;
+			emprisonner();
 		}
 	}
 
