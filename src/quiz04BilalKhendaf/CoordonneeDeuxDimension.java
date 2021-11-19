@@ -10,7 +10,7 @@ public class CoordonneeDeuxDimension extends Coordonnee {
 	
 	@Override
 	public String toString() {
-		return "Position [X:" + x + ", Y:" + y + "]";
+		return "[X:" + x + ", Y:" + y + "]";
 	}
 	
 	
