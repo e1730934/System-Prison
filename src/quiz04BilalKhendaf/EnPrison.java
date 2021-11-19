@@ -2,19 +2,18 @@ package quiz04BilalKhendaf;
 
 public class EnPrison implements IEtatPrisonnier {
 
-	@Override
-	public void enCavalle(Prisonnier p) {
-		// TODO Auto-generated method stub
-		p.etat = new Fugitif();
-		p.message = "Le prisonnier " + p.nom + ", " + p.prenom + " est en cavalle." + " Sa dernière position connue est: " + p.position;
-		p.NotifyAll();
+    @Override
+    public void enCavalle(Prisonnier p) {
+        p.etat = new Fugitif();
+        p.message = "Le prisonnier " + p.nom + ", " + p.prenom + " de l'établissement " + p.etablissementDetention.nomEtablissement + " est en cavalle." + " Sa dernière position connue est: " + p.position;
+        p.NotifyAll();
 
-	}
+    }
 
-	@Override
-	public void emprisonner(Prisonnier p) {
-		// TODO Auto-generated method stub
-		System.out.println("Le prisonnier " + p.nom + ", " + p.prenom + " est déjà en prison.");
-	}
+    @Override
+    public void emprisonner(Prisonnier p) {
+
+        System.out.println("Le prisonnier " + p.nom + ", " + p.prenom + " est déjà dans la prison " + p.etablissementDetention.nomEtablissement + ".");
+    }
 
 }

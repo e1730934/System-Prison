@@ -1,5 +1,6 @@
 package quiz04BilalKhendaf;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Prisonnier implements IObservable {
@@ -8,18 +9,20 @@ public class Prisonnier implements IObservable {
 	IEtatPrisonnier etat;
 	String message, nom, prenom;
 	Etablissement etablissementDetention;
+	log logPosition;
 	
 	
 	
-	public Prisonnier(Coordonnee position, String nom, String prenom, Etablissement etablissementDetention) {
+	public Prisonnier(Coordonnee position, String nom, String prenom, Etablissement etablissementDetention, log logPosition) {
 		super();
-		this.observers = new ArrayList<Observateur>();
+		this.observers = new ArrayList<>();
 		this.position = position;
 		this.etat = new EnPrison();
 		this.message = "";
 		this.nom = nom;
 		this.prenom = prenom;
 		this.etablissementDetention = etablissementDetention;
+		this.logPosition = logPosition;
 	}
 
 	@Override
@@ -51,19 +54,15 @@ public class Prisonnier implements IObservable {
 		this.etat.emprisonner(this);
 	}
 	
-	void changementPosition(Coordonnee nouveauP) {
-		float boundX = this.etablissementDetention.position.x + this.etablissementDetention.largeur;
-		float boundY = this.etablissementDetention.position.y + this.etablissementDetention.longeur;
-//		CoordonneeDeuxDimension bound = new CoordonneeDeuxDimension(boundX,boundY);
-		boolean conditionUn = (nouveauP.x >= boundX || nouveauP.x <= this.etablissementDetention.position.x);
-		boolean conditionDeux = (nouveauP.y >= boundY || nouveauP.y <= this.etablissementDetention.position.y);
+	void changementPosition(Coordonnee nouveauP) throws IOException {
+		boolean conditionUn = (nouveauP.x >= this.etablissementDetention.boundX || nouveauP.x <= this.etablissementDetention.position.x);
+		boolean conditionDeux = (nouveauP.y >= this.etablissementDetention.boundY || nouveauP.y <= this.etablissementDetention.position.y);
+		this.position = nouveauP;
 		if(conditionUn || conditionDeux) {
-//			this.message= "Alerte! Le prisonnier " + this.nom + this.prenom ;
-			this.position = nouveauP;
+			this.logPosition.writeFile(("Prisonnier_" + this.nom+"_"+this.prenom),position.toString());
 			enCavalle();
 		}
 		else {
-			this.position = nouveauP;
 			emprisonner();
 		}
 	}
