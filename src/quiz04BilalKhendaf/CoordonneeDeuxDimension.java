@@ -1,6 +1,6 @@
 package quiz04BilalKhendaf;
 
-public class CoordonneeDeuxDimension extends Coordonnee {
+public class CoordonneeDeuxDimension extends ICoordonnee {
 	
 
 	public CoordonneeDeuxDimension(Float x, Float y) {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Prisonnier implements IObservable {
 	ArrayList<Observateur> observers;
-	Coordonnee position;
+	ICoordonnee position;
 	IEtatPrisonnier etat;
 	String message, nom, prenom;
 	Etablissement etablissementDetention;
@@ -13,7 +13,7 @@ public class Prisonnier implements IObservable {
 	
 	
 	
-	public Prisonnier(Coordonnee position, String nom, String prenom, Etablissement etablissementDetention, Log logPosition) {
+	public Prisonnier(ICoordonnee position, String nom, String prenom, Etablissement etablissementDetention, Log logPosition) {
 		super();
 		this.observers = new ArrayList<>();
 		this.position = position;
@@ -54,7 +54,7 @@ public class Prisonnier implements IObservable {
 		this.etat.emprisonner(this);
 	}
 	
-	void changementPosition(Coordonnee nouveauP) throws IOException {
+	void changementPosition(ICoordonnee nouveauP) throws IOException {
 		boolean conditionUn = (nouveauP.x >= this.etablissementDetention.boundX || nouveauP.x <= this.etablissementDetention.position.x);
 		boolean conditionDeux = (nouveauP.y >= this.etablissementDetention.boundY || nouveauP.y <= this.etablissementDetention.position.y);
 		this.position = nouveauP;

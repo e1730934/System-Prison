@@ -1,11 +1,11 @@
 package quiz04BilalKhendaf;
 
 public abstract class Etablissement {
-	Coordonnee position;
+	ICoordonnee position;
 	String nomEtablissement;
 	float longeur, largeur, boundX,boundY;
 	
-	public Etablissement(Coordonnee position, String nomEtablissement, float longeur, float largeur) {
+	public Etablissement(ICoordonnee position, String nomEtablissement, float longeur, float largeur) {
 		super();
 		this.position = position;
 		this.nomEtablissement = nomEtablissement;
