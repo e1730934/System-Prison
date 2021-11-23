@@ -2,7 +2,8 @@ package quiz04BilalKhendaf;
 
 import java.io.IOException;
 
-public abstract class Log {
+public abstract class Log extends Observateur {
     String extension;
-    abstract  void writeFile(String filename, String input) throws IOException;
+
+    abstract void notifyMe(String m) throws IOException;
 }
