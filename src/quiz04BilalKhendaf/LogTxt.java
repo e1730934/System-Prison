@@ -4,17 +4,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 
+
 public class LogTxt extends Log {
-    public LogTxt(){
+
+    String filename;
+
+    public LogTxt(String filename) {
+        this.filename = filename;
         this.extension = ".txt";
     }
 
-
     @Override
-      void writeFile(String filename, String input) throws IOException {
+    void notifyMe(String m) throws IOException {
         ZonedDateTime dateTime = ZonedDateTime.now();
-        FileWriter fw = new FileWriter(filename + this.extension,true);
-        fw.write(dateTime + ": " +input + "\n");
+        FileWriter fw = new FileWriter(this.filename + this.extension, true);
+        fw.write(dateTime + ": " + m + "\n");
         fw.close();
     }
+
+    String extension;
 }

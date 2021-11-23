@@ -7,12 +7,12 @@ public abstract class Etablissement {
 	
 	public Etablissement(ICoordonnee position, String nomEtablissement, float longeur, float largeur) {
 		super();
-		this.position = position;
+		this.position =  position;
 		this.nomEtablissement = nomEtablissement;
 		this.longeur = longeur;
 		this.largeur = largeur;
-		this.boundX = this.position.x + this.largeur;
-		this.boundY = this.position.y + this.longeur;
+		this.boundX = ((CoordonneeDeuxDimension)position).x + this.largeur;
+		this.boundY = ((CoordonneeDeuxDimension)position).y + this.longeur;
 
 	}
 	

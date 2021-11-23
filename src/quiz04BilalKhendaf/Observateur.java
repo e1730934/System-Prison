@@ -1,9 +1,8 @@
 package quiz04BilalKhendaf;
 
-public abstract class Observateur {
-	int matricule;
-	void notifyMe(String m) {
+import java.io.IOException;
 
-		System.out.println("Alerte pour "+ this.getClass().getSimpleName() +" " + this.matricule +": "+ m);
-	}
+public abstract class Observateur {
+
+    abstract void notifyMe(String m) throws IOException;
 }
