@@ -14,7 +14,7 @@ public class EnPrison implements IEtatPrisonnier {
     @Override
     public void emprisonner(Prisonnier p) {
 
-        System.out.println("Le prisonnier " + p.nom + ", " + p.prenom + " est déjà dans la prison " + p.etablissementDetention.nomEtablissement + ".");
+        System.out.println("Le prisonnier " + p.nom + ", " + p.prenom + " est déjà dans la prison " + p.etablissementDetention.nomEtablissement +".");
     }
 
 }
